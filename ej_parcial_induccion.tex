@@ -1,0 +1,145 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}  % Paquete para símbolos adicionales
+
+\begin{document}
+
+\section*{Ejercicio recuperatorio primer parcial 2°C 2024}
+
+4. Demostrar que, para todo \( n \in \mathbb{N} \), \( n \geq 2 \),
+\[
+\binom{2n}{n} \leq 3 \cdot 2^{2n - 3}
+\]
+
+\noindent\rule{\textwidth}{0.4pt} % Línea separadora
+
+Este ejercicio se ve mas díficil de lo que es. Solo tenes que recordar que la fórmula general del número combinatorio es:
+\[
+\binom{n}{k} = \frac{n!}{k!(n-k)!}
+\]
+Despues sale bastante directo.
+
+\subsection*{Proposición:}
+\[
+p(n) : \binom{2n}{n} \leq 3 \cdot 2^{2n - 3}
+\]
+
+
+\subsection*{Caso base:}
+Probaremos para \( n = 2 \). En este caso:
+\[
+\binom{2 \cdot 2}{2} \leq 3 \cdot 2^{2 \cdot 2 - 3}
+\]
+\[
+\frac{4!}{2! \cdot 2!} \leq 6 
+\]
+\[
+\ 6 \leq 6 
+\] \(\checkmark\) \ 
+Se cumple el caso base.
+
+\subsection*{Paso inductivo:}
+Sea  \( k \in \mathbb{N}\) dado. Supongo p(k) es verdadero, quiero probar que p(k+1) es verdadero.
+
+
+\subsection*{HI:}
+Supongo p(k) verdadero.
+\[
+\binom{2k}{k} \leq 3 \cdot 2^{2k - 3}.
+\]
+Es decir
+\[
+\frac{(2k)!}{(2k-k)! \, k!} \leq 3 \cdot 2^{2k-3}.
+\]
+\[
+\frac{(2k)!}{k! \, k!} \leq 3 \cdot 2^{2k-3}.
+\]
+
+\subsection*{QPQ:}
+Quiero probar que p(k+1) es verdadero. 
+\[
+\binom{2(k+1)}{k+1} \leq 3 \cdot 2^{2(k+1) - 3}.
+\]
+
+\subsection*{Trabajo con lo que sé}
+La idea es ir trabajando desde lo que quiero probar con la fórmula del número combinatorio, hasta llegar a la HI.
+
+\[
+\binom{2(k+1)}{k+1} \leq 3 \cdot 2^{2(k+1) - 3}.
+\]  \[
+\binom{2k+2}{k+1} \leq 3 \cdot 2^{2k-1}.
+\] 
+Aplico fórmula general del número combinatorio.
+\[
+\frac{(2k+2)!}{(2k+2-k-1)! \, (k+1)!} \leq 3 \cdot 2^{2k-1}.
+\]
+\[
+\frac{(2k+2)!}{(k+1)! \, (k+1)!} \leq 3 \cdot 2^{2k-1}.
+\]
+\[
+\frac{(2k)! \, (2k+1) \, (2k+2)}{k! \, (k+1) \, k! \, (k+1)} \leq 3 \cdot 2^{2k-1}.
+\]
+\[
+\frac{(2k)!}{k!k!} \cdot \frac{(2k+1)(2k+2)}{(k+1)(k+1)} \leq 3 \cdot 2^{2k-1}
+\]
+
+\subsection*{Vale decir que}
+Por estos calculos realizados arriba
+\[
+\binom{2(k+1)}{k+1}
+\] = \[
+\frac{(2k)!}{k!k!} \cdot \frac{(2k+1)(2k+2)}{(k+1)(k+1)}
+\]
+
+Por HI 
+\[
+\frac{(2k)!}{k!k!} \cdot \frac{(2k+1)(2k+2)}{(k+1)(k+1)} \leq 3 \cdot 2^{2k-3}\cdot \frac{(2k+1)(2k+2)}{(k+1)(k+1)}
+\] 
+
+Basta con probar que 
+\[
+3 \cdot 2^{2k-3}\cdot \frac{(2k+1)(2k+2)}{(k+1)(k+1)} \leq 3 \cdot 2^{2k-1}
+\] 
+\[
+2^{2k-3}\cdot \frac{(2k+1)(2k+2)}{(k+1)(k+1)} \leq 2^{2k-1}
+\]
+\[
+2^3\cdot 2^{2k-3}\cdot \frac{(2k+1)(2k+2)}{(k+1)(k+1)} \leq 2^{2k-1}\cdot2^3
+\]
+\[
+2^{2k}\cdot \frac{(2k+1)(2k+2)}{(k+1)(k+1)} \leq 2^{2k+2}
+\]
+\[
+2^{2k}\cdot \frac{(2k+1)(2k+2)}{(k+1)(k+1)} \leq 2^{2k}\cdot2^{2}
+\]
+\[
+\frac{(2k+1)(2k+2)}{(k+1)(k+1)} \leq 2^{2}
+\]
+\[
+(2k+1)(2k+2) \leq 4(k+1)(k+1)
+\]
+\[
+4k^2 + 4k + 2k +2 \leq 4(k^2 +2k + 1)
+\]
+\[
+4k^2 + 6k  +2 \leq 4k^2 +8k + 4
+\]
+\[
+ 6k  +2 \leq 8k + 4
+\]
+\[
+-2 \leq 2k
+\]
+\[
+-1 \leq k
+\]
+Esto es verdadero para todo \( k \in \mathbb{N}\) :D
+
+\subsection*{Concluimos:}
+
+Así, \( p(2) \) es verdadero, \( p(k) \) es verdadero, \( p(k+1) \) es verdadero, con \( k \in \mathbb{N} \) , \( k \geq 2 \). 
+\[
+\Rightarrow \, p(n) \text{ es verdadero para todo } n \in \mathbb{N}, \, n \geq 2.
+\]
+
+\end{document}
